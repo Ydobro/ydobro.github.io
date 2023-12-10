@@ -1,0 +1,24 @@
+.intro {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  padding: 10vh 1rem;
+}
+
+.intro-title {
+  line-height: 1.15;
+
+  &__line {
+    display: block;
+
+    &--main {
+      font-family: 'Impact';
+      font-size: clamp(2.5rem, 4vw + 1rem, 6rem);
+      line-height: 1;
+    }
+
+    &--lower {
+      font-size: 1.25em;
+    }
+  }
+}

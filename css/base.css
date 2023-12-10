@@ -1,0 +1,21 @@
+:root {
+  --color-text: #ffffffde;
+  --color-background: #242424;
+  --color-selection: #b3dbd356;
+  --color-primary: #ffc069;
+}
+
+/* Page Loader */
+.js .loading::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--color-background);
+  z-index: 1000;
+  opacity: 1;
+  transition: 0.35s opacity;
+}
+
+.js .loading.loaded::before {
+  opacity: 0;
+}

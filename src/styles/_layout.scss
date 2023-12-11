@@ -1,0 +1,33 @@
+.page-content {
+  position: relative;
+  background-color: var(--color-background);
+  margin-top: -1px;
+}
+
+.content-divider {
+  position: relative;
+
+  &__shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    fill: var(--color-shape-fill);
+    filter: drop-shadow(0 0 3px rgba(#000, 0.4));
+
+    &:nth-child(1) {
+      --color-shape-fill: #4a403a;
+      bottom: 1.4vw;
+    }
+
+    &:nth-child(2) {
+      --color-shape-fill: #caa674;
+      bottom: 0.7vw;
+    }
+
+    &:nth-child(3) {
+      --color-shape-fill: var(--color-background);
+      filter: none;
+    }
+  }
+}

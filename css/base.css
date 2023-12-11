@@ -1,6 +1,7 @@
 :root {
   --color-text: #ffffffde;
   --color-background: #242424;
+  --color-background-darker: color-mix(in srgb, var(--color-background), #000 30%);
   --color-selection: #b3dbd356;
   --color-primary: #ffc069;
 }

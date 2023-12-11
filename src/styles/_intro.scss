@@ -1,12 +1,17 @@
 .intro {
+  position: sticky;
+  top: 0;
+  left: 0;
   display: grid;
   place-content: center;
   min-height: 100vh;
-  padding: 10vh 1rem;
+  padding: 200px 1rem;
+  background-color: var(--color-background-darker);
 }
 
 .intro-title {
   line-height: 1.15;
+  margin-bottom: 10vw;
 
   &__line {
     display: block;
@@ -14,7 +19,7 @@
     &--main {
       font-family: 'Impact';
       font-size: clamp(2.5rem, 4vw + 1rem, 6rem);
-      line-height: 1;
+      line-height: 1.1;
     }
 
     &--lower {

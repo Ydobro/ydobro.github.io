@@ -32,7 +32,47 @@
     </script>
   </head>
   <body class="loading">
-    <main>{{> intro }}</main>
+    <main>
+      {{> intro }}
+
+      <div class="content-divider">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          class="content-divider__shape"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M 984.329 102.143 C 921.843 87.356 874.27 67.11 793.064 40.133 C 727.874 18.477 632.153 -14.443 501.373 13.915 C 397.427 36.454 384.002 46.085 322.72 63.092 C 203.306 96.231 115.105 105.451 -0.665 35.332 L 0 120 L 1200 120 L 1199.335 97.795 C 1121.906 118.97 1074.033 123.371 984.329 102.143 Z"
+          ></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          class="content-divider__shape"
+          aria-hidden="true"
+        >
+          <path
+            d="M 979.673 100.147 C 915.653 89.868 854.98 67.775 777.765 40.133 C 713.091 16.981 632.088 -16.07 501.373 12.585 C 438.004 26.477 380.334 50.404 322.72 63.092 C 217.604 86.242 117.1 91.482 0 27.35 L 0 120 L 1200 120 L 1200.665 82.496 C 1119.245 112.318 1044.073 110.487 979.673 100.147 Z"
+          ></path>
+        </svg>
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          class="content-divider__shape"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M 980.338 90.169 C 907.776 68.245 850.005 48.93 771.778 24.833 C 698.934 2.394 575.78 -5.466 493.39 11.254 C 435.55 22.984 379.39 45.65 321.39 56.44 C 213.613 76.264 123.752 82.169 0 27.35 L 0 120 L 1200 120 L 1201.33 85.157 C 1133.52 108.277 1052.651 112.017 980.338 90.169 Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="page-content">{{> about }}</div>
+    </main>
 
     <script type="module" src="/index.js"></script>
   </body>

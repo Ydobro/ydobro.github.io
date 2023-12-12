@@ -15,5 +15,8 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.7.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.3"
   }
 }

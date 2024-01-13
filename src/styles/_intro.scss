@@ -1,17 +1,22 @@
 .intro {
   position: sticky;
   top: 0;
-  left: 0;
-  display: grid;
-  place-content: center;
-  min-height: 100vh;
-  padding: 200px 1rem;
   background-color: var(--color-background-darker);
 }
 
+.intro-content {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 200px 1rem;
+}
+
 .intro-title {
+  position: relative;
   line-height: 1.15;
   margin-bottom: 10vw;
+  z-index: 10;
 
   &__line {
     display: block;
@@ -24,6 +29,31 @@
 
     &--lower {
       font-size: 1.25em;
+    }
+  }
+}
+
+.intro-background {
+  position: absolute;
+  inset: 0;
+
+  &__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__picture {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

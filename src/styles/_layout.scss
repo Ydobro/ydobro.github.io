@@ -6,6 +6,7 @@
 
 .content-divider {
   position: relative;
+  pointer-events: none;
 
   &__shape {
     position: absolute;

@@ -81,6 +81,8 @@ const initIntroCanvas = () => {
   let prevTimestamp = Date.now()
 
   const gl = canvas.getContext('webgl')
+  gl.clearColor(0.0, 0.0, 0.0, 1.0) // Set clear color to black
+
   gl.getExtension('OES_texture_float')
 
   let outputColor, velocity, divergence, pressure
@@ -225,6 +227,8 @@ const initIntroCanvas = () => {
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo)
     gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0)
     gl.viewport(0, 0, w, h)
+
+    gl.clearColor(0.0, 0.0, 0.0, 1.0) // Set clear color to black
     gl.clear(gl.COLOR_BUFFER_BIT)
 
     return {
@@ -265,6 +269,9 @@ const initIntroCanvas = () => {
   function render() {
     const dt = (Date.now() - prevTimestamp) / 1000
     prevTimestamp = Date.now()
+
+    gl.clearColor(0.0, 0.0, 0.0, 1.0) // Set clear color to black
+    gl.clear(gl.COLOR_BUFFER_BIT)
 
     if (!pointer.firstMove) {
       pointer.moved = true

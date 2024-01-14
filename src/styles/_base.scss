@@ -53,6 +53,26 @@ h6 {
   overflow-wrap: break-word;
 }
 
+p {
+  margin-block: 1.5em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  padding-inline-start: 2.25rem;
+}
+
+li {
+  list-style-type: square;
+
+  &::marker {
+    color: var(--color-html);
+  }
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);

@@ -34,9 +34,15 @@
   </head>
   <body class="loading">
     <main>
-      {{> intro }} {{> content-divider }}
+      <!-- prettier-ignore -->
+      {{> intro }}
+      {{> content-divider }}
 
-      <div class="page-content">{{> about }}</div>
+      <div class="page-content">
+        <!-- prettier-ignore -->
+        {{> about }}
+        {{> skills }}
+      </div>
     </main>
 
     <script type="module" src="/index.js"></script>

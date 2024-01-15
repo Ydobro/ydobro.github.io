@@ -63,7 +63,7 @@ const initIntroCanvas = () => {
     VELOCITY_DISSIPATION: 0.9,
     PRESSURE_ITERATIONS: 5,
     SPLAT_RADIUS: 3.5 / window.innerHeight,
-    color: { r: 0.8, g: 0.7, b: 0.3 }
+    color: { r: 0.95, g: 0.8, b: 0.45 }
   }
 
   const pointer = {
@@ -271,8 +271,8 @@ const initIntroCanvas = () => {
       const newX =
         (0.25 + 0.2 * Math.cos(0.005 * prevTimestamp) * Math.sin(0.008 * prevTimestamp)) * window.innerWidth
       const newY = (0.45 + 0.17 * Math.sin(0.01 * prevTimestamp)) * window.innerHeight
-      pointer.dx = 2 * (newX - pointer.x)
-      pointer.dy = 2 * (newY - pointer.y)
+      pointer.dx = 5 * (newX - pointer.x)
+      pointer.dy = 4 * (newY - pointer.y)
       pointer.x = newX
       pointer.y = newY
     }

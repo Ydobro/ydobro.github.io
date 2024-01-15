@@ -1,7 +1,6 @@
 .intro {
   position: sticky;
   top: 0;
-  background-color: var(--color-background-darker);
 }
 
 .intro-content {
@@ -10,6 +9,7 @@
   display: grid;
   place-content: center;
   padding: 200px 1rem;
+  background-color: var(--color-background-darker);
 }
 
 .intro-title {
@@ -17,6 +17,8 @@
   line-height: 1.15;
   margin-bottom: 10vw;
   z-index: 10;
+  opacity: 0.95;
+  pointer-events: none;
 
   &__line {
     display: block;
@@ -36,6 +38,7 @@
 .intro-background {
   position: absolute;
   inset: 0;
+  mix-blend-mode: multiply;
 
   &__canvas {
     position: absolute;

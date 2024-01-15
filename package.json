@@ -14,7 +14,7 @@
     "vite-plugin-handlebars": "^1.6.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.7.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.9.5"
   },
   "dependencies": {
     "gsap": "^3.12.4"

@@ -25,7 +25,37 @@
     <meta name="twitter:description" content="I'm a Frontend developer" />
     <meta name="twitter:image" content="https://ydobro.github.io/images/preview.png" />
 
-    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <style>
+      :root {
+        --color-text: #ffffffde;
+        --color-background: #242424;
+        --color-background-darker: color-mix(in srgb, var(--color-background), #000 30%);
+        --color-selection: #b3dbd356;
+        --color-primary: #ffc069;
+        --color-html: #5e7671;
+
+        color-scheme: dark;
+      }
+
+      /* Page Loader */
+      .js .loading {
+        overflow-x: hidden;
+      }
+
+      .js .loading::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: var(--color-background);
+        z-index: 1000;
+        opacity: 1;
+        transition: 0.35s opacity;
+      }
+
+      .js .loading.loaded::before {
+        opacity: 0;
+      }
+    </style>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>

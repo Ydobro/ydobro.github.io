@@ -17,6 +17,7 @@ Promise.all([preloadImages('.intro'), preloadFonts(['Impact'])]).then(() => {
 const init = () => {
   initIntroCanvas()
   initPathAnimation()
+  initCubeAnimation()
 }
 
 const initPathAnimation = () => {
@@ -347,4 +348,33 @@ const initIntroCanvas = () => {
 
     requestAnimationFrame(render)
   }
+}
+
+const initCubeAnimation = () => {
+  const elClassName = 'cube-item'
+
+  const cubeList = [...document.querySelectorAll(`.${elClassName}`)]
+  const directions = { 0: 'top', 1: 'right', 2: 'bottom', 3: 'left' }
+  const classNames = ['in', 'out']
+    .map((p) => Object.values(directions).map((d) => `${elClassName}--${p}-${d}`))
+    .reduce((a, b) => a.concat(b))
+
+  const getDirectionKey = (ev, element) => {
+    const { width, height, top, left } = element.getBoundingClientRect()
+    const l = ev.pageX - (left + window.scrollX)
+    const t = ev.pageY - (top + window.scrollY)
+    const x = l - (width / 2) * (width > height ? height / width : 1)
+    const y = t - (height / 2) * (height > width ? width / height : 1)
+    return Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4
+  }
+
+  const updateCubeClass = (element, ev, prefix) => {
+    element.classList.remove(...classNames)
+    element.classList.add(`${elClassName}--${prefix}-${directions[getDirectionKey(ev, element)]}`)
+  }
+
+  cubeList.forEach((element) => {
+    element.addEventListener('mouseover', (ev) => updateCubeClass(element, ev, 'in'))
+    element.addEventListener('mouseout', (ev) => updateCubeClass(element, ev, 'out'))
+  })
 }

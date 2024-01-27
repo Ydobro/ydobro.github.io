@@ -1,0 +1,216 @@
+.skills-cube-list {
+  --cube-size: 170px;
+  --gap: 5px;
+  --limit-in-row: 4;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--cube-size));
+  justify-content: center;
+  max-width: calc(var(--cube-size) * var(--limit-in-row) + (var(--limit-in-row) - 1) * var(--gap));
+  margin-inline: auto;
+
+  gap: var(--gap);
+  margin-top: 3rem;
+}
+
+.cube-item {
+  --view-animation-name: '';
+  --view-animation-play-state: paused;
+  --back-side-transform: translate3d(0, 0, -1px);
+  --back-side-transform-origin: center;
+
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 300px;
+  transform-origin: 50% 50% calc(var(--cube-size) / 2);
+
+  &__view {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% calc(var(--cube-size) / 2 * -1);
+    will-change: transform;
+    animation: 200ms ease-out 0ms 1 normal forwards;
+    animation-name: var(--view-animation-name);
+    animation-play-state: var(--view-animation-play-state);
+  }
+
+  &__side {
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+    text-align: center;
+
+    background-color: var(--cube-color, #000);
+    background-image: linear-gradient(
+        to right bottom,
+        hsla(0, 0%, 100%, var(--cube-background-first-opacity, 0.3)) 50%,
+        hsla(0, 0%, 100%, var(--cube-background-second-opacity, 0.6)) 0
+      ),
+      linear-gradient(-45deg, rgba(97, 250, 113, 0.4), rgba(255, 87, 87, 0.4) 40%, rgba(18, 186, 200, 0.4));
+
+    transition: none;
+
+    &--front {
+      svg {
+        width: calc(var(--cube-size) / 1.7);
+        filter: drop-shadow(1px 1px 1px rgba(#000, 0.8));
+      }
+    }
+
+    &--back {
+      --cube-background-first-opacity: 0.3;
+      --cube-background-second-opacity: 0.6;
+
+      transform-origin: var(--back-side-transform-origin);
+      transform: var(--back-side-transform);
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-family: 'Impact';
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 1px rgba(#000, 0.75);
+    padding: 4px 12px;
+  }
+
+  /** Mods: */
+  &--in-top {
+    --view-animation-name: in-top;
+    --view-animation-play-state: running;
+  }
+
+  &--in-left {
+    --view-animation-name: in-left;
+    --view-animation-play-state: running;
+  }
+
+  &--in-right {
+    --view-animation-name: in-right;
+    --view-animation-play-state: running;
+  }
+
+  &--in-bottom {
+    --view-animation-name: in-bottom;
+    --view-animation-play-state: running;
+  }
+
+  &--out-top {
+    --view-animation-name: out-top;
+    --view-animation-play-state: running;
+  }
+
+  &--out-left {
+    --view-animation-name: out-left;
+    --view-animation-play-state: running;
+  }
+
+  &--out-right {
+    --view-animation-name: out-right;
+    --view-animation-play-state: running;
+  }
+
+  &--out-bottom {
+    --view-animation-name: out-bottom;
+    --view-animation-play-state: running;
+  }
+
+  &--in-top,
+  &--out-top {
+    --back-side-transform-origin: 0% 100%;
+    --back-side-transform: translate3d(0, -100%, 0) rotate3d(1, 0, 0, 90deg);
+  }
+
+  &--in-left,
+  &--out-left {
+    --back-side-transform-origin: 100% 0;
+    --back-side-transform: translate3d(-100%, 0, 0) rotate3d(0, -1, 0, 90deg);
+  }
+
+  &--in-right,
+  &--out-right {
+    --back-side-transform-origin: 0% 0%;
+    --back-side-transform: translate3d(100%, 0, 0) rotate3d(0, 1, 0, 90deg);
+  }
+
+  &--in-bottom,
+  &--out-bottom {
+    --back-side-transform-origin: 0% 0%;
+    --back-side-transform: translate3d(0, 100%, 0) rotate3d(-1, 0, 0, 90deg);
+  }
+
+  @keyframes in-top {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(-1, 0, 0, 90deg);
+    }
+  }
+  @keyframes out-top {
+    from {
+      transform: rotate3d(-1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @keyframes in-right {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, -1, 0, 90deg);
+    }
+  }
+  @keyframes out-right {
+    from {
+      transform: rotate3d(0, -1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @keyframes in-bottom {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+  }
+  @keyframes out-bottom {
+    from {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @keyframes in-left {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, 1, 0, 90deg);
+    }
+  }
+  @keyframes out-left {
+    from {
+      transform: rotate3d(0, 1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+}

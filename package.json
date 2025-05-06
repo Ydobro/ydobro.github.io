@@ -17,6 +17,6 @@
     "@rollup/rollup-linux-x64-gnu": "^4.40.1"
   },
   "dependencies": {
-    "gsap": "^3.12.7"
+    "gsap": "^3.13.0"
   }
 }
